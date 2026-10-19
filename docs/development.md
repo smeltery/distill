@@ -28,7 +28,7 @@ make website
 
 ## Documentation and website
 
-Edit the topic files in `docs/`. The website renders these same Markdown files; there is no second copy to maintain. Add pages to `website/src/lib/catalog.ts`. Mermaid diagrams are parsed and rendered to SVG during `bun run check:docs`, so visitors do not download Mermaid's JavaScript.
+Edit the topic files in `docs/`. The website renders these same Markdown files; there is no second copy to maintain. Add pages to `website/src/lib/catalog.ts`. After editing a Mermaid diagram, run `bun run docs:generate` and commit the generated SVG alongside the Markdown. `bun run check:docs` parses and renders every diagram in CI and hooks. Deployment verifies the committed assets and links without requiring Chromium, and visitors do not download Mermaid's JavaScript.
 
 Keep the original Distill slate, purple, and cream palette in the shared CSS tokens. Logo and social image sources live in `website/public/`. The social image is exported to PNG for preview compatibility.
 

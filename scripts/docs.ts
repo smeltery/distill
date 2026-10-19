@@ -3,6 +3,8 @@ import { createHash } from "node:crypto";
 import { readFile, mkdir, writeFile, access } from "node:fs/promises";
 import { resolve, dirname } from "node:path";
 
+const write = process.argv.includes("--write");
+const assetsOnly = process.argv.includes("--assets-only");
 const files = [
   "README.md",
   ...Array.from(new Bun.Glob("docs/**/*.md").scanSync(".")),
@@ -41,6 +43,21 @@ for (const file of files) {
   }
 }
 await mkdir("website/public/diagrams", { recursive: true });
+if (!write) {
+  for (const hash of diagrams.keys()) {
+    await access(`website/public/diagrams/${hash}.svg`).catch(() => {
+      throw new Error(
+        `Missing diagram ${hash}. Run bun run docs:generate and commit the SVG.`,
+      );
+    });
+  }
+}
+if (assetsOnly) {
+  console.log(
+    `Verified ${diagrams.size} committed diagrams and Markdown links.`,
+  );
+  process.exit(0);
+}
 const browser = await chromium.launch();
 try {
   const page = await browser.newPage();
@@ -55,6 +72,8 @@ try {
     ).mermaid;
     mermaid.initialize({
       startOnLoad: false,
+      deterministicIds: true,
+      deterministicIDSeed: "distill",
       securityLevel: "strict",
       theme: "base",
       themeVariables: {
@@ -85,7 +104,7 @@ try {
       },
       { hash, source },
     );
-    await writeFile(`website/public/diagrams/${hash}.svg`, svg);
+    if (write) await writeFile(`website/public/diagrams/${hash}.svg`, svg);
   }
 } finally {
   await browser.close();

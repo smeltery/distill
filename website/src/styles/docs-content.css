@@ -244,3 +244,10 @@
     padding: 15px;
   }
 }
+
+.diagram-scroll {
+  overflow-x: auto;
+}
+.diagram-scroll img {
+  min-width: 900px;
+}

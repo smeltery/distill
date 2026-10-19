@@ -55,7 +55,7 @@ check-web:
 check: check-go check-content audit audit-workflows check-web
 
 website:
-	bun run check:docs
+	bun run docs:generate
 	bun run --cwd website dev
 
 clean:

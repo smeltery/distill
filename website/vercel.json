@@ -1,7 +1,7 @@
 {
   "buildCommand": "cd .. && bun run build:web",
   "devCommand": "bun run dev",
-  "installCommand": "cd .. && bun install --frozen-lockfile && bunx playwright install chromium",
+  "installCommand": "cd .. && bun install --frozen-lockfile",
   "framework": "nextjs",
   "outputDirectory": ".next"
 }

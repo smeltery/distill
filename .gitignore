@@ -45,6 +45,5 @@ next-env.d.ts
 .website-studio/
 playwright-report/
 test-results/
-website/public/diagrams/
 
 website/.next-dev/

@@ -29,13 +29,20 @@ export function DocArticle({ markdown }: { markdown: string }) {
           if (className === "language-mermaid")
             return (
               <figure className="doc-diagram">
-                <Image
-                  unoptimized
-                  src={`/diagrams/${diagramName(text)}.svg`}
-                  alt="Workflow diagram; the equivalent steps are described in the surrounding text."
-                  width={1000}
-                  height={420}
-                />
+                <div
+                  className="diagram-scroll"
+                  tabIndex={0}
+                  role="region"
+                  aria-label="Scrollable workflow diagram"
+                >
+                  <Image
+                    unoptimized
+                    src={`/diagrams/${diagramName(text)}.svg`}
+                    alt="Workflow diagram; the equivalent steps are described in the surrounding text."
+                    width={1000}
+                    height={420}
+                  />
+                </div>
                 <details>
                   <summary>View diagram source</summary>
                   <pre>{text}</pre>

@@ -12,9 +12,10 @@
     "check:budgets": "bun scripts/budgets.ts",
     "check:docs": "bun scripts/docs.ts",
     "check:web": "bun run --cwd website lint && bun run --cwd website typecheck",
-    "build:web": "bun run check:docs && bun run --cwd website build",
+    "build:web": "bun scripts/docs.ts --assets-only && bun run --cwd website build",
     "test:web": "playwright test",
-    "check": "make check"
+    "check": "make check",
+    "docs:generate": "bun scripts/docs.ts --write"
   },
   "devDependencies": {
     "@playwright/test": "1.58.2",
