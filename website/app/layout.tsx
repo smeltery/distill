@@ -1,60 +1,71 @@
-import type { Metadata } from 'next';
-import '@/styles/globals.css';
+import type { Metadata } from "next";
+import localFont from "next/font/local";
+import { siteUrl } from "@/lib/site";
+import "@/styles/globals.css";
 
+const sans = localFont({
+  src: "../node_modules/@fontsource-variable/dm-sans/files/dm-sans-latin-wght-normal.woff2",
+  variable: "--font-dm-sans",
+  weight: "100 1000",
+  display: "swap",
+  adjustFontFallback: "Arial",
+});
+const mono = localFont({
+  src: "../node_modules/@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-400-normal.woff2",
+  variable: "--font-ibm-mono",
+  weight: "400",
+  display: "swap",
+});
+
+const description =
+  "Turn local Markdown into focused, reusable knowledge for AI agents. Template-driven compaction with Claude, Codex, Anthropic, or OpenAI.";
+const image = `${siteUrl}/og-image.png`;
 export const metadata: Metadata = {
-  metadataBase: new URL('https://distill.smeltery.io'),
-  title: 'distill — AI-Powered Knowledge Compactor for Agents',
-  description: 'Compact technical books into agent-optimized markdown. Template-driven AI compaction with incremental updates, multi-source ingestion, and pluggable agents.',
+  metadataBase: new URL(siteUrl),
+  robots:
+    process.env.VERCEL_ENV === "preview"
+      ? { index: false, follow: false }
+      : undefined,
+  title: {
+    default: "distill — Less context. More clarity.",
+    template: "%s · distill",
+  },
+  description,
   openGraph: {
-    title: 'distill — AI-Powered Knowledge Compactor for Agents',
-    description: 'Compact technical books into agent-optimized markdown. Template-driven AI compaction with incremental updates, multi-source ingestion, and pluggable agents.',
-    url: 'https://distill.smeltery.io',
-    siteName: 'distill',
+    title: "distill — Less context. More clarity.",
+    description,
+    siteName: "distill",
     images: [
       {
-        url: '/og-image.svg',
+        url: image,
         width: 1200,
         height: 630,
-        alt: 'distill — AI-Powered Knowledge Compactor for Agents',
+        alt: "Distill compacts a Markdown guide into focused agent context.",
       },
     ],
-    locale: 'en_US',
-    type: 'website',
+    type: "website",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'distill — AI-Powered Knowledge Compactor for Agents',
-    description: 'Compact technical books into agent-optimized markdown.',
-    images: ['/og-image.svg'],
+    card: "summary_large_image",
+    title: "distill — Less context. More clarity.",
+    description,
+    images: [image],
   },
-  icons: {
-    icon: [
-      {
-        url: '/favicon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: [
-      {
-        url: '/favicon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-  },
+  icons: { icon: "/favicon.svg" },
 };
-
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <head>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </head>
-      <body>{children}</body>
+    <html lang="en" className={`${sans.variable} ${mono.variable}`}>
+      <body id="top">
+        <a className="skip" href="#main">
+          Skip to content
+        </a>
+        {children}
+      </body>
     </html>
   );
 }

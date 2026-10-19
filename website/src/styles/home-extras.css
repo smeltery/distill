@@ -1,0 +1,209 @@
+.template-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.template-tabs button,
+.agent-switch button {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px 20px;
+  background: transparent;
+  color: var(--muted);
+  font: 12px var(--mono);
+  cursor: pointer;
+}
+.template-tabs button[aria-selected="true"],
+.agent-switch button[aria-pressed="true"] {
+  color: var(--ink);
+  border-color: var(--accent);
+  background: var(--sage);
+}
+.template-example {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+.example-source,
+.example-output {
+  padding: 32px;
+  min-width: 0;
+}
+.example-source {
+  background: var(--white);
+}
+.example-source h3 {
+  margin: 30px 0 16px;
+  font-size: 22px;
+  font-weight: 500;
+}
+.example-source > p:not(.eyebrow),
+.example-output > p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+.example-source > span {
+  display: block;
+  border-top: 1px solid var(--line);
+  margin-top: 30px;
+  padding-top: 20px;
+  color: var(--muted);
+  font-size: 11px;
+}
+.example-output {
+  background: #161924;
+}
+.example-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--accent);
+  font: 10px var(--mono);
+}
+.example-label .copy-control button {
+  font-size: 10px;
+}
+.example-output pre {
+  color: #c8bbff;
+  font: 12px/1.9 var(--mono);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  margin: 30px 0;
+  min-height: 140px;
+}
+.example-output h3 {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0 0 12px;
+}
+.agent-choices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.agent-choices h2,
+.home-faq h2 {
+  font-size: clamp(32px, 4vw, 46px);
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+  margin: 24px 0;
+  font-weight: 500;
+}
+.agent-choices h2 em,
+.home-faq h2 em {
+  font-family: var(--serif);
+  font-weight: 400;
+}
+.agent-choices > div > p:not(.eyebrow) {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+  max-width: 470px;
+}
+.agent-switch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 28px 0 24px;
+}
+.agent-switch button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--sans);
+}
+.agent-choice-panel {
+  padding: 36px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--white);
+  min-height: 340px;
+}
+.provider-marks {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+.agent-choice-panel h3 {
+  font-size: 23px;
+  font-weight: 500;
+  margin-bottom: 18px;
+}
+.agent-choice-panel code {
+  display: block;
+  font-size: 12px;
+  padding: 16px;
+  margin: 24px 0 18px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow-wrap: anywhere;
+}
+.agent-choice-panel .agent-footnote {
+  font-size: 11px;
+}
+.home-faq {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 64px;
+}
+.home-faq details {
+  border-bottom: 1px solid var(--line);
+}
+.home-faq details:first-child {
+  border-top: 1px solid var(--line);
+}
+.home-faq summary {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0;
+  font-size: 15px;
+  list-style: none;
+  cursor: pointer;
+}
+.home-faq summary::-webkit-details-marker {
+  display: none;
+}
+.home-faq summary svg {
+  flex-shrink: 0;
+  color: var(--accent);
+}
+.home-faq details[open] summary svg {
+  transform: rotate(180deg);
+}
+.home-faq details p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--muted);
+  margin: 0 0 24px;
+}
+@media (max-width: 780px) {
+  .template-example,
+  .agent-choices,
+  .home-faq {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .agent-choices,
+  .home-faq {
+    gap: 32px;
+  }
+  .example-source,
+  .example-output,
+  .agent-choice-panel {
+    padding: 24px;
+  }
+  .template-tabs button {
+    flex: 1;
+    padding: 12px;
+  }
+}

@@ -29,6 +29,7 @@ OUTPUT FORMAT:
 - {Another}
 
 DIRECTIVES:
+
 - Write in imperative mood ("Do X", not "You should consider doing X").
 - One to two sentences per rule. No filler, no hedging, no disclaimers.
 - Number rules hierarchically: section.rule (1.1, 1.2, 2.1, ...).

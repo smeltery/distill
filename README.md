@@ -1,161 +1,36 @@
-# distill — AI-Powered Knowledge Compactor for Agents
+# <img src="website/public/favicon.svg" width="40" height="40" alt="" align="absmiddle" /> distill
 
-![distill](./assets/og-image.svg)
+**Less context. More clarity.** Compact local Markdown into focused knowledge for AI agents, using templates and your preferred CLI or API provider.
+
+![Distill — less context, more clarity](website/public/og-image.png)
 
 [![CI](https://github.com/smeltery/distill/actions/workflows/ci.yml/badge.svg)](https://github.com/smeltery/distill/actions/workflows/ci.yml)
-[![Release](https://github.com/smeltery/distill/actions/workflows/release.yml/badge.svg)](https://github.com/smeltery/distill/actions/workflows/release.yml)
-[![Coverage](https://img.shields.io/badge/coverage-82%25-brightgreen.svg)](https://github.com/smeltery/distill)
-[![License: PolyForm Shield 1.0.0](https://img.shields.io/badge/License-PolyForm%20Shield%201.0.0-blue.svg)](https://polyformproject.org/licenses/shield/1.0.0/)
+[![Release](https://img.shields.io/github/v/release/smeltery/distill)](https://github.com/smeltery/distill/releases)
+[![Go](https://img.shields.io/badge/Go-1.26-00ADD8?logo=go&logoColor=white)](go.mod)
+[![Bun](https://img.shields.io/badge/Bun-1.3-f9f1e1?logo=bun)](package.json)
+[![Next.js](https://img.shields.io/badge/Next.js-15-000000?logo=nextdotjs)](website/)
+[![Flox](https://img.shields.io/badge/dev-Flox-8b5cf6)](.flox/env/manifest.toml)
+[![License](https://img.shields.io/badge/license-PolyForm_Shield-8b5cf6)](LICENSE)
 
-![Go](https://img.shields.io/badge/-Go-00ADD8?style=flat-square&logo=go&logoColor=white)
-![Cobra](https://img.shields.io/badge/-Cobra-00ADD8?style=flat-square&logo=go&logoColor=white)
-![Anthropic](https://img.shields.io/badge/-Anthropic-191919?style=flat-square&logo=anthropic&logoColor=white)
-![macOS](https://img.shields.io/badge/-macOS-000000?style=flat-square&logo=apple&logoColor=white)
-![Linux](https://img.shields.io/badge/-Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
+## Start
 
-Compact technical books, documentation, and reference material into agent-optimized markdown. Outputs structured context repos that plug directly into Warp, Claude Code, or any agent that reads markdown.
-
-## Quick Start
-
-```sh
-# Install
-go install github.com/smeltery/distill@latest
-
-# Initialize a config
-distill config init
-
-# Add a source
-distill add pdf ~/Books/tao-of-react.pdf --name tao-of-react --template rules --output-dir tao
-
-# Compact it
-distill tao-of-react
-
-# Add a full book split by chapter
-distill add pdf ~/Books/ddia.pdf --name ddia --template principles --output-dir ddia --split-by chapter
-distill ddia
-
-# Add a local markdown guide
-distill add markdown ./docs/guide.md --name my-guide --template rules
-
-# Re-compact everything
-distill update --force
-
-# List tracked sources
-distill list
-
-# Scaffold a new context repo
-distill init my-context
-
-# Install a shared context repo for your agents
-distill install https://github.com/myteam/shared-context.git
-
-# See available templates
-distill templates
-```
-
-## How It Works
-
-1. **Add a source** — PDF, markdown file, Notion page, web URL, EPUB, or GitHub file.
-2. **Choose a template** — `rules` (numbered imperative rules), `principles` (chapter-based), `patterns` (named patterns), or `raw` (minimal compaction).
-3. **Compact** — `distill <name>` sends the source through an AI compaction pipeline and writes agent-optimized markdown.
-4. **Publish** — Copy output to a context repo that your agents read from (`~/.claude/docs/` or anywhere else).
-
-Output is structured with `index.md` files at every level so agents know what to load and when.
-
-```
-output/
-├── index.md                      # root index
-├── tao/
-│   ├── index.md                  # "Load when working with React..."
-│   ├── tao-of-react-minified.md
-│   └── tao-of-node-minified.md
-└── ddia/
-    ├── index.md                  # "Load when making data architecture decisions..."
-    ├── ddia_01_minified.md
-    └── ddia_02_minified.md
-```
-
-## Installation
-
-### Via `go install`
+Install Go 1.26.9+ and authenticate the Claude CLI, or [configure another agent](docs/agents.md).
 
 ```sh
 go install github.com/smeltery/distill@latest
-```
-
-### Via Homebrew
-
-```sh
-brew tap smeltery/tap
-brew install --cask distill
-```
-
-### Via GitHub Release
-
-```sh
-gh release download --repo smeltery/distill --pattern 'distill_darwin_arm64.tar.gz' --dir /tmp
-tar -xzf /tmp/distill_darwin_arm64.tar.gz -C /usr/local/bin
-```
-
-### From source
-
-```sh
-git clone https://github.com/smeltery/distill.git
-cd distill
-make install
-```
-
-## Configuration
-
-```sh
-# Create default config
 distill config init
-
-# Config lives at distill.yaml (project-level) or ~/.config/distill/config.yaml (global)
+distill add markdown ./guide.md --name guide --template rules
+distill guide
 ```
 
-Sources, agents, templates, and output settings are all configured in `distill.yaml`. See [SPEC.md](SPEC.md) for the full config format.
+Read `output/guide/guide-minified.md`, review it, and share it with your agent. Templates produce rules, principles, patterns, or lightly compacted text. Claude and Codex CLIs, Anthropic, and OpenAI are supported.
 
-## Commands
+Markdown ingestion works today. Other input formats, automatic publishing, and validation are not yet implemented. See [current capabilities](docs/index.md#what-works-today).
 
-| Command | Description |
-|---|---|
-| `distill <name>` | Compact a tracked source |
-| `distill add <type> <location>` | Register a new source (pdf, markdown, notion, url, epub, github) |
-| `distill update [name]` | Re-compact one or all tracked sources |
-| `distill list` | List tracked sources with status |
-| `distill templates` | List available compaction templates |
-| `distill validate [name]` | Validate output format and token budget |
-| `distill init <name>` | Scaffold a new context repo |
-| `distill install <repo-url>` | Clone a context repo into `~/.claude/docs/` for agent consumption |
-| `distill publish` | Copy output to a context repo and commit |
-| `distill agents` | List configured AI agents and their status |
-| `distill config init` | Create default config file |
+## Documentation
 
-## Templates
+Start with [docs/](docs/index.md): [quick start](docs/quick-start.md), [sources](docs/sources.md), [templates](docs/templates.md), [configuration](docs/configuration.md), [commands](docs/commands.md), and [sharing context](docs/sharing.md).
 
-| Template | Format | Use for |
-|---|---|---|
-| `rules` | Numbered imperative rules grouped by section | Framework guides, best practices books |
-| `principles` | Chapter-based core principles with loading guidance | Dense technical books (DDIA, etc.) |
-| `patterns` | Named patterns with problem/solution/rationale | Design pattern references |
-| `raw` | Minimal compaction, preserves original structure | Already-concise material |
+For development, `flox activate` then `make setup` and `make check`. See [development](docs/development.md) for the website, CI, hooks, and release process. [SPEC.md](SPEC.md) and [PAPER.md](PAPER.md) describe the broader design; the user docs distinguish implemented behavior from planned features.
 
-Custom templates are supported — add `.md` files to a templates directory and reference them by name.
-
-## Paper
-
-A technical paper describing distill's design and contributions is available in the repo:
-
-[**PAPER.md**](PAPER.md) — covers the template-driven compaction system, multi-source ingestion layer, content-hashing state tracker, pluggable agent architecture, and the full distribution pipeline from context repo creation to team-wide consumption.
-
-## Dependencies
-
-- **[claude](https://docs.anthropic.com/en/docs/claude-code)** — Claude Code CLI (default agent, no API key needed)
-- **[git](https://git-scm.com/)** — for `distill publish` and `distill init`
-
-API-based providers (Anthropic, OpenAI) are also supported via config.
-
-## License
-
-This project is licensed under the [PolyForm Shield License 1.0.0](https://polyformproject.org/licenses/shield/1.0.0/) — see [LICENSE](LICENSE) for details.
+Licensed under [PolyForm Shield 1.0.0](LICENSE).

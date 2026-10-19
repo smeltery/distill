@@ -1,39 +1,22 @@
 version: 2
-
 builds:
   - binary: distill
+    env: [CGO_ENABLED=0]
     goos: [darwin, linux]
     goarch: [amd64, arm64]
     ldflags:
       - -s -w -X main.version={{.Version}}
-
-homebrew_casks:
-  - repository:
-      owner: smeltery
-      name: homebrew-tap
-      token: "{{ .Env.HOMEBREW_TAP_TOKEN }}"
-    name: distill
-    homepage: https://github.com/smeltery/distill
-    description: AI-powered knowledge compactor for agents
-    license: "MIT"
-    binaries: [distill]
-    hooks:
-      post:
-        install: |
-          if OS.mac?
-            system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/distill"]
-          end
-
 archives:
   - formats: [tar.gz]
     name_template: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}"
-
+    files: [LICENSE, README.md, docs/**]
 checksum:
   name_template: checksums.txt
-
 changelog:
   sort: asc
   filters:
-    exclude:
-      - "^docs:"
-      - "^chore:"
+    exclude: ["^docs:", "^chore:", "^ci:", "^test:"]
+release:
+  github:
+    owner: smeltery
+    name: distill

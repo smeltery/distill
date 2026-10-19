@@ -1,0 +1,27 @@
+{
+  "name": "distill",
+  "private": true,
+  "packageManager": "bun@1.3.11",
+  "workspaces": [
+    "website"
+  ],
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint:md": "markdownlint-cli2",
+    "check:budgets": "bun scripts/budgets.ts",
+    "check:docs": "bun scripts/docs.ts",
+    "check:web": "bun run --cwd website lint && bun run --cwd website typecheck",
+    "build:web": "bun scripts/docs.ts --assets-only && bun run --cwd website build",
+    "test:web": "playwright test",
+    "check": "make check",
+    "docs:generate": "bun scripts/docs.ts --write"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.58.2",
+    "@axe-core/playwright": "4.11.1",
+    "markdownlint-cli2": "0.21.0",
+    "mermaid": "11.12.3",
+    "prettier": "3.8.1"
+  }
+}

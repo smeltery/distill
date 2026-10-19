@@ -1,0 +1,22 @@
+{
+  "globs": [
+    "**/*.md",
+    "!node_modules/**",
+    "!.flox/**",
+    "!website/node_modules/**",
+    "!.website-studio/**",
+    "!website/.next/**",
+    "!website/.next-dev/**",
+    "!playwright-report/**",
+    "!test-results/**",
+    "!SPEC.md",
+    "!PAPER.md",
+  ],
+  "config": {
+    "MD013": false,
+    "MD033": {
+      "allowed_elements": ["img", "picture", "source"],
+    },
+    "MD041": false,
+  },
+}

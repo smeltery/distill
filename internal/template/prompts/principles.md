@@ -20,6 +20,7 @@ OUTPUT FORMAT:
 - {Concrete scenario where these principles are most relevant}
 
 DIRECTIVES:
+
 - Extract 6-12 core principles per chapter.
 - Each principle must be independently useful — no forward references to other chapters.
 - Bold the principle name, then explain in plain, direct English.

@@ -1,0 +1,11 @@
+# Distill
+
+Distill compacts local Markdown into agent context using templates and CLI/API agents.
+
+- Documentation: https://github.com/smeltery/distill/tree/master/docs
+- Quick start: https://github.com/smeltery/distill/blob/master/docs/quick-start.md
+- Commands and limitations: https://github.com/smeltery/distill/blob/master/docs/commands.md
+- License: https://github.com/smeltery/distill/blob/master/LICENSE
+
+Markdown ingestion is implemented. PDF, EPUB, Notion, URL, and GitHub ingestion,
+validate, publish, automatic index generation, and incremental skipping are not.

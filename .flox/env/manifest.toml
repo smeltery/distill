@@ -1,0 +1,25 @@
+schema-version = "1.18.0"
+
+[install]
+go.pkg-path = "go"
+go.version = "^1.26.1"
+bun.pkg-path = "bun"
+bun.version = "1.3.11"
+nodejs.pkg-path = "nodejs_22"
+gnumake.pkg-path = "gnumake"
+git.pkg-path = "git"
+golangci-lint.pkg-path = "golangci-lint"
+govulncheck.pkg-path = "govulncheck"
+goreleaser.pkg-path = "goreleaser"
+pre-commit.pkg-path = "pre-commit"
+actionlint.pkg-path = "actionlint"
+
+[vars]
+GOTOOLCHAIN = "go1.26.9"
+NEXT_TELEMETRY_DISABLED = "1"
+
+[services.website]
+command = "bun run check:docs && bun run --cwd website dev"
+
+[options]
+systems = ["aarch64-darwin", "x86_64-darwin", "aarch64-linux", "x86_64-linux"]

@@ -1,0 +1,11 @@
+{
+  "defaultLines": 350,
+  "defaultFiles": 25,
+  "files": {
+    "SPEC.md": {
+      "limit": 1130,
+      "reason": "Historical design specification; current user documentation is split by topic in docs/."
+    }
+  },
+  "directories": {}
+}

@@ -40,3 +40,10 @@ npm-debug.log*
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts
+
+# Local verification
+.website-studio/
+playwright-report/
+test-results/
+
+website/.next-dev/
