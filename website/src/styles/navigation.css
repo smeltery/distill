@@ -2,9 +2,7 @@
   position: sticky;
   top: 0;
   z-index: 20;
-  background: #1a1d29f5;
   padding-block: 16px 0;
-  backdrop-filter: blur(12px);
 }
 .header-inner {
   height: 66px;
@@ -12,7 +10,8 @@
   align-items: center;
   gap: 12px;
   border: 1px solid var(--line);
-  background: #222635bd;
+  background: #222635f5;
+  backdrop-filter: blur(12px);
   border-radius: 999px;
   padding-inline: 22px;
 }
