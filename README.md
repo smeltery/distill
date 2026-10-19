@@ -1,6 +1,4 @@
-<img src="website/public/favicon.svg" width="64" height="64" alt="Distill logo" />
-
-# distill
+# <img src="website/public/favicon.svg" width="40" height="40" alt="" align="absmiddle" /> distill
 
 **Less context. More clarity.** Compact local Markdown into focused knowledge for AI agents, using templates and your preferred CLI or API provider.
 
