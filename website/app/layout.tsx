@@ -27,12 +27,12 @@ export const metadata: Metadata = {
       ? { index: false, follow: false }
       : undefined,
   title: {
-    default: "distill — Less context. More clarity.",
+    default: "distill — Long docs. Focused AI context.",
     template: "%s · distill",
   },
   description,
   openGraph: {
-    title: "distill — Less context. More clarity.",
+    title: "distill — Long docs. Focused AI context.",
     description,
     siteName: "distill",
     images: [
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "distill — Less context. More clarity.",
+    title: "distill — Long docs. Focused AI context.",
     description,
     images: [image],
   },
