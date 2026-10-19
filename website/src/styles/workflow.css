@@ -125,15 +125,8 @@
   .hero-lead {
     font-size: 15px;
   }
-  .desktop-break {
-    display: none;
-  }
   .hero-actions {
     gap: 22px;
-  }
-  .hero-details {
-    gap: 12px;
-    font-size: 9px;
   }
   .distill-demo {
     transform: none;

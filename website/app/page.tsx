@@ -4,6 +4,7 @@ import {
   HomeFAQ,
 } from "@/components/HomeExtras";
 import Link from "next/link";
+import Image from "next/image";
 import {
   FileText,
   Layers,
@@ -28,64 +29,97 @@ export default function Page() {
         <section className="hero">
           <div className="hero-copy">
             <p className="eyebrow">
-              <span className="status-dot" /> Knowledge, in its most useful form
+              <span className="status-dot" /> A CLI for better AI context
             </p>
             <h1>
-              Less context.
+              Long docs.
               <br />
-              <em>More clarity.</em>
+              <em>Focused AI context.</em>
             </h1>
             <p className="hero-lead">
-              Your best references. Your agent’s next instinct.
-              <br className="desktop-break" /> Turn long-form Markdown into
-              focused, reusable knowledge.
+              Turn Markdown guides and team knowledge into concise rules,
+              principles, and patterns your AI agent can use. Review once. Reuse
+              across projects.
             </p>
             <div className="hero-actions">
               <Link className="button" href="/docs/quick-start">
                 Start distilling <ArrowRight size={18} />
               </Link>
-              <Link className="text-link" href="/docs">
-                Read the docs
+              <Link className="text-link" href="#use-cases">
+                Explore the output
               </Link>
             </div>
-            <p className="hero-details">
-              Plain Markdown <span>·</span> Your choice of agent <span>·</span>{" "}
-              Built in Go
-            </p>
+            <div className="hero-tools" aria-label="Tools for your workflow">
+              <div>
+                <span className="hero-tools-label">Distill with</span>
+                <span className="hero-tool">
+                  <Image
+                    src="/brands/chat/claude.svg"
+                    width={22}
+                    height={22}
+                    alt=""
+                  />
+                  Claude
+                </span>
+                <span className="hero-tool">
+                  <Image
+                    src="/brands/chat/chatgpt.svg"
+                    width={22}
+                    height={22}
+                    alt=""
+                  />
+                  Codex
+                </span>
+              </div>
+              <div>
+                <span className="hero-tools-label">Reuse in</span>
+                <span className="hero-tool">
+                  <Image
+                    src="/brands/chat/cursor.svg"
+                    width={22}
+                    height={22}
+                    alt=""
+                  />
+                  Cursor
+                </span>
+                <span className="hero-tool">
+                  <FileText size={20} />
+                  Markdown
+                </span>
+              </div>
+              <p>Use your CLI or connect an Anthropic / OpenAI API key.</p>
+            </div>
           </div>
           <div
             className="distill-demo"
             aria-label="Example compaction from a guide to concise rules"
           >
             <div className="demo-title">
-              <span className="eyebrow">
-                Keep the knowledge. Lose the noise.
-              </span>
+              <span className="eyebrow">Your guide → reusable rules</span>
               <Layers size={18} />
             </div>
             <div className="source-preview">
               <span>
                 <FileText size={16} /> engineering-guide.md
               </span>
-              <div className="document-lines">
-                <i />
-                <i />
-                <i />
-                <i />
-                <i />
-              </div>
+              <p>
+                When writing a function, keep it focused on a single
+                responsibility. Handle errors where there is enough context to
+                explain what went wrong. Document assumptions that affect how
+                the code behaves.
+              </p>
             </div>
             <div className="demo-command">
               <Terminal size={17} />
               <code>distill guide --token-budget 2000</code>
-              <span className="demo-note">Illustration</span>
+              <span className="demo-note">Example</span>
             </div>
             <div className="output-preview">
               <div>
                 <span className="status-dot" /> guide-minified.md{" "}
                 <span>Markdown</span>
               </div>
-              <h3>Good decisions, distilled.</h3>
+              <h3>The rules. Without the prose.</h3>
               <p>
                 <b>01</b> Keep functions focused on one responsibility.
               </p>
@@ -97,7 +131,7 @@ export default function Page() {
               </p>
             </div>
             <div className="demo-footer">
-              <Check size={15} /> Ready to review. Ready to reuse.
+              <Check size={15} /> Review the Markdown. Give it to your agent.
             </div>
           </div>
         </section>
