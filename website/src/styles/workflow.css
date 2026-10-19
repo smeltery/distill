@@ -1,0 +1,237 @@
+.workflow {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 100px;
+  border-block: 1px solid var(--line);
+}
+.workflow > div > p:not(.eyebrow) {
+  font-size: 14px;
+  margin: 24px 0;
+}
+.steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.steps li {
+  display: flex;
+  gap: 28px;
+  padding-bottom: 28px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--line);
+}
+.steps li:last-child {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.steps li > span {
+  font: 12px var(--mono);
+  color: var(--accent);
+  padding-top: 4px;
+}
+.steps li > div {
+  min-width: 0;
+}
+.steps h3 {
+  font-size: 24px;
+}
+.steps p {
+  font-size: 13px;
+  margin: 12px 0;
+}
+.steps code {
+  font-size: 11px;
+  color: var(--accent);
+  overflow-wrap: anywhere;
+}
+.template-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+.template-grid a {
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  padding: 26px;
+  background: var(--white);
+}
+.template-grid a:hover {
+  background: var(--sage);
+  border-color: #695585;
+}
+.template-grid h3 {
+  font-size: 22px;
+  margin: 36px 0 14px;
+  color: var(--ink);
+}
+.template-grid p {
+  font-size: 13px;
+}
+.research {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  padding: 30px 0;
+  border-block: 1px solid var(--line);
+}
+.research > svg {
+  color: var(--accent);
+}
+.research h3 {
+  font-size: 23px;
+  margin-bottom: 10px;
+}
+.research p {
+  font-size: 13px;
+  max-width: 650px;
+}
+.research a {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.closing {
+  text-align: center;
+  padding-block: 90px;
+}
+.closing h2 {
+  font-size: clamp(48px, 5vw, 66px);
+  margin: 24px 0 36px;
+}
+.install-command {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  border: 1px solid var(--line);
+  background: var(--white);
+  width: fit-content;
+  max-width: 100%;
+  margin: auto;
+  padding: 12px 14px 12px 22px;
+  border-radius: 8px;
+  text-align: left;
+}
+.install-command code {
+  font-size: 12px;
+  color: var(--accent);
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+.install-command .copy-control {
+  flex-shrink: 0;
+}
+.closing > p:not(.eyebrow) {
+  font-size: 12px;
+  margin: 22px 0 12px;
+}
+@media (max-width: 1100px) {
+  .hero {
+    gap: 40px;
+  }
+  .hero h1 {
+    font-size: 62px;
+  }
+  .workflow {
+    gap: 50px;
+  }
+  .template-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 780px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 42px;
+    padding: 48px 0;
+  }
+  .hero h1 {
+    font-size: clamp(48px, 12vw, 66px);
+    margin: 22px 0;
+  }
+  .hero-lead {
+    font-size: 15px;
+  }
+  .desktop-break {
+    display: none;
+  }
+  .hero-actions {
+    gap: 22px;
+  }
+  .hero-details {
+    gap: 12px;
+    font-size: 9px;
+  }
+  .distill-demo {
+    transform: none;
+    padding: 22px;
+  }
+  .benefit-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 15px;
+  }
+  .benefit-strip > span {
+    font-size: 10px;
+    gap: 8px;
+  }
+  .section {
+    padding-block: 48px;
+  }
+  .section-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .section-heading h2,
+  .workflow h2 {
+    font-size: 36px;
+  }
+  .feature-grid,
+  .workflow {
+    grid-template-columns: 1fr;
+    gap: 38px;
+  }
+  .feature-grid article {
+    padding-top: 24px;
+  }
+  .feature-grid h3 {
+    margin-top: 18px;
+  }
+  .feature-grid p {
+    max-width: none;
+  }
+  .template-grid {
+    gap: 12px;
+  }
+  .template-grid a {
+    padding: 18px;
+  }
+  .template-grid h3 {
+    font-size: 22px;
+    margin-top: 26px;
+  }
+  .research {
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+  .research > div {
+    flex: 1;
+    min-width: 230px;
+  }
+  .research a {
+    margin-left: 44px;
+  }
+  .install-command {
+    padding: 12px;
+    gap: 10px;
+  }
+  .install-command code {
+    font-size: 10px;
+  }
+  .install-command .copy-control button {
+    font-size: 0;
+  }
+  .closing {
+    padding-block: 60px;
+  }
+}

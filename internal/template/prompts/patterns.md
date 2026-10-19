@@ -26,6 +26,7 @@ OUTPUT FORMAT (one pattern per section):
 - {Anti-pattern scenario}
 
 DIRECTIVES:
+
 - Extract the most important patterns from the source material.
 - Each pattern must be self-contained and independently useful.
 - Problem section: describe the pain point that motivates the pattern.

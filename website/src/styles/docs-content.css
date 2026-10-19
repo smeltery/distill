@@ -1,0 +1,246 @@
+.docs-main h1 {
+  font-size: 48px;
+  margin: 42px 0 24px;
+}
+.docs-main h1 + p {
+  font-size: 17px;
+  margin-bottom: 44px;
+}
+.docs-main h2 {
+  border-top: 1px solid var(--line);
+  margin-top: 44px;
+  padding-top: 38px;
+  scroll-margin-top: 105px;
+}
+.docs-main h1 + p + h2 {
+  border: 0;
+  padding-top: 0;
+}
+.docs-main ul {
+  padding-left: 22px;
+}
+.docs-main a:not(.doc-pagination a) {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.docs-main .doc-category {
+  font-size: 14px;
+}
+.docs-sidebar nav > div > a,
+.docs-mobile-nav nav a {
+  display: block;
+  padding: 10px;
+  font-size: 12px;
+  border-radius: 6px;
+  color: var(--muted);
+}
+.docs-sidebar a[aria-current],
+.docs-mobile-nav a[aria-current] {
+  background: var(--sage);
+  color: var(--accent);
+  font-weight: 650;
+}
+.docs-toc {
+  position: sticky;
+  top: 76px;
+  height: calc(100dvh - 76px);
+  overflow-y: auto;
+  padding: 50px 32px 30px 10px;
+}
+.docs-toc > p {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 15px;
+}
+.docs-toc nav a {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+  padding: 9px 0;
+  line-height: 1.4;
+}
+.doc-actions {
+  border-top: 1px solid var(--line);
+  margin-top: 25px;
+  padding-top: 14px;
+}
+.doc-actions > a,
+.doc-actions > button,
+.doc-actions .copy-control button,
+.doc-actions summary {
+  background: none;
+  border: 0;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 12px;
+  width: 100%;
+  padding: 12px 0;
+  text-align: left;
+}
+.doc-actions a:hover,
+.doc-actions button:hover,
+.doc-actions summary:hover {
+  color: var(--accent);
+}
+.chat-links {
+  display: grid;
+  gap: 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 12px;
+}
+.chat-links a {
+  padding: 7px;
+}
+.docs-mobile-nav {
+  display: none;
+}
+.code-block {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  margin: 24px 0;
+  overflow: hidden;
+  background: #161924;
+}
+.code-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid var(--line);
+  padding: 8px 16px;
+  color: var(--muted);
+  font: 11px var(--mono);
+}
+.code-block pre {
+  padding: 20px;
+  margin: 0;
+  overflow-x: auto;
+  font-size: 12px;
+  line-height: 1.9;
+}
+.doc-diagram {
+  padding: 20px;
+  margin: 0;
+}
+.doc-diagram img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.doc-diagram details {
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.table-scroll {
+  overflow-x: auto;
+  margin: 24px 0;
+}
+.docs-main table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 13px;
+}
+.docs-main th {
+  color: var(--ink);
+  font-weight: 550;
+}
+.docs-main td,
+.docs-main th {
+  border-bottom: 1px solid var(--line);
+  padding: 12px;
+  min-width: 120px;
+}
+.docs-main td {
+  color: var(--muted);
+}
+.doc-pagination {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin: 50px 0 24px;
+}
+.doc-pagination a {
+  display: grid;
+  gap: 8px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.doc-pagination span {
+  color: var(--muted);
+  font-size: 11px;
+}
+.doc-pagination strong {
+  font-weight: 500;
+  font-size: 14px;
+}
+.doc-pagination a:last-child {
+  text-align: right;
+}
+.docs-end {
+  border-top: 1px solid var(--line);
+  padding: 24px 0;
+  font-size: 11px !important;
+}
+@media (max-width: 700px) {
+  .docs-header .brand {
+    font-size: 20px;
+  }
+  .docs-header nav {
+    margin-left: auto;
+  }
+  .docs-header nav a:not(:last-child) {
+    display: none;
+  }
+  .docs-header .header-search-trigger {
+    margin-left: 0;
+  }
+  .docs-sidebar {
+    display: none;
+  }
+  .docs-mobile-nav {
+    display: block;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--line);
+  }
+  .docs-mobile-nav summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    min-height: 30px;
+  }
+  .docs-mobile-nav summary span {
+    color: var(--accent);
+  }
+  .docs-mobile-nav nav {
+    padding-top: 18px;
+  }
+  .docs-mobile-nav nav p {
+    padding: 18px 10px 5px;
+    font-size: 10px;
+    text-transform: uppercase;
+  }
+  .docs-main {
+    padding-top: 28px;
+  }
+  .docs-main h1 {
+    font-size: 40px;
+    margin-top: 24px;
+  }
+  .docs-main h2 {
+    font-size: 25px;
+  }
+  .doc-pagination a {
+    padding: 15px;
+  }
+}

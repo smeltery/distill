@@ -1,0 +1,13 @@
+bun.lock
+.flox/
+.website-studio/
+website/.next/
+website/next-env.d.ts
+website/public/diagrams/
+coverage.out
+*.sum
+*.svg
+SPEC.md
+PAPER.md
+
+website/.next-dev/

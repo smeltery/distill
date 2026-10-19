@@ -1,0 +1,33 @@
+repos:
+  - repo: local
+    hooks:
+      - id: go
+        name: Go formatting, lint, tests, coverage, and build
+        entry: flox activate -- make check-go
+        language: system
+        pass_filenames: false
+        always_run: true
+      - id: content
+        name: Formatting, Markdown, links, Mermaid, and LOC budgets
+        entry: flox activate -- make check-content
+        language: system
+        pass_filenames: false
+        always_run: true
+      - id: audit
+        name: Go vulnerabilities and release configuration
+        entry: flox activate -- make audit
+        language: system
+        pass_filenames: false
+        always_run: true
+      - id: workflows
+        name: GitHub Actions validation
+        entry: flox activate -- make audit-workflows
+        language: system
+        pass_filenames: false
+        always_run: true
+      - id: website
+        name: Website lint, types, production build, browser and accessibility
+        entry: flox activate -- make check-web
+        language: system
+        pass_filenames: false
+        always_run: true
