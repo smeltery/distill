@@ -2,7 +2,7 @@
 
 **Less context. More clarity.** Compact local Markdown into focused knowledge for AI agents, using templates and your preferred CLI or API provider.
 
-![Distill — less context, more clarity](website/public/og-image.png)
+![Distill — long docs, focused AI context](website/public/og-image.png)
 
 [![CI](https://github.com/smeltery/distill/actions/workflows/ci.yml/badge.svg)](https://github.com/smeltery/distill/actions/workflows/ci.yml)
 [![Release](https://img.shields.io/github/v/release/smeltery/distill)](https://github.com/smeltery/distill/releases)
