@@ -45,29 +45,6 @@
   color: var(--accent);
   overflow-wrap: anywhere;
 }
-.template-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-}
-.template-grid a {
-  border: 1px solid var(--line);
-  border-radius: 15px;
-  padding: 26px;
-  background: var(--white);
-}
-.template-grid a:hover {
-  background: var(--sage);
-  border-color: #695585;
-}
-.template-grid h3 {
-  font-size: 22px;
-  margin: 36px 0 14px;
-  color: var(--ink);
-}
-.template-grid p {
-  font-size: 13px;
-}
 .research {
   display: flex;
   align-items: center;
@@ -134,9 +111,6 @@
   .workflow {
     gap: 50px;
   }
-  .template-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 @media (max-width: 780px) {
   .hero {
@@ -199,16 +173,6 @@
   }
   .feature-grid p {
     max-width: none;
-  }
-  .template-grid {
-    gap: 12px;
-  }
-  .template-grid a {
-    padding: 18px;
-  }
-  .template-grid h3 {
-    font-size: 22px;
-    margin-top: 26px;
   }
   .research {
     flex-wrap: wrap;

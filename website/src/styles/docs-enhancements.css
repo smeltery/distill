@@ -1,0 +1,134 @@
+.highlighted-code {
+  display: flex;
+  gap: 20px;
+}
+.code-block .highlighted-code {
+  padding: 20px 16px 20px 0;
+}
+.code-gutter {
+  flex: 0 0 40px;
+  text-align: right;
+  color: #9395aa;
+  user-select: none;
+  border-right: 1px solid var(--line);
+  padding-right: 14px;
+}
+.highlighted-code code {
+  padding-right: 20px;
+}
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-built_in {
+  color: #c4b0ff;
+}
+.hljs-string,
+.hljs-addition {
+  color: #b9d7b1;
+}
+.hljs-attr,
+.hljs-title,
+.hljs-section {
+  color: #c8bbff;
+}
+.hljs-number,
+.hljs-literal,
+.hljs-variable {
+  color: #f3c3a0;
+}
+.hljs-comment,
+.hljs-meta {
+  color: #a3a5bb;
+}
+.docs-main h1 em {
+  display: block;
+  font-family: var(--serif);
+  font-weight: 400;
+}
+.docs-main .docs-notice {
+  margin: 28px 0;
+}
+.docs-notice p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 13px;
+}
+.doc-actions {
+  display: grid;
+  gap: 4px;
+}
+.doc-actions summary {
+  list-style: none;
+  cursor: pointer;
+}
+.doc-actions summary::-webkit-details-marker {
+  display: none;
+}
+.chat-chevron {
+  margin-left: auto;
+  transition: transform 160ms;
+}
+.doc-actions details[open] .chat-chevron {
+  transform: rotate(90deg);
+}
+.chat-links {
+  gap: 2px;
+  padding: 6px 10px;
+}
+.chat-links a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+}
+.chat-links a span {
+  flex: 1;
+}
+.chat-note,
+.docs-main .chat-note {
+  font-size: 10px;
+  line-height: 1.5;
+  color: var(--muted);
+  margin: 9px 0 0;
+}
+.doc-actions textarea {
+  width: 100%;
+  min-height: 140px;
+  font: 11px/1.5 var(--mono);
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  padding: 10px;
+}
+.mobile-doc-actions {
+  display: none;
+}
+@media (max-width: 1100px) {
+  .mobile-doc-actions {
+    display: block;
+  }
+  .mobile-doc-actions a {
+    text-decoration: none !important;
+  }
+}
+
+.mobile-toc {
+  display: none;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  margin-bottom: 28px;
+  padding: 14px 16px;
+  font-size: 12px;
+}
+.mobile-toc summary {
+  cursor: pointer;
+}
+.mobile-toc nav {
+  display: grid;
+  gap: 12px;
+  padding-top: 20px;
+}
+@media (max-width: 1100px) {
+  .mobile-toc {
+    display: block;
+  }
+}

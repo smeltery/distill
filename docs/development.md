@@ -45,3 +45,9 @@ The default limit is 350 lines per source/documentation file and 25 direct files
 After successful CI on the default branch, the auto-release workflow tags the verified commit with the next patch version and explicitly dispatches the release workflow. Release jobs run the same checks before GoReleaser publishes macOS and Linux archives with checksums. Pull requests never cut releases.
 
 A manual release accepts an existing version tag. The workflow verifies the tag format, and GoReleaser requires a clean tagged checkout. GitHub's workflow token supplies repository release permissions; no personal token is required.
+
+## Website content and assets
+
+Documentation pages render the Markdown in `docs/` on the server. Code examples use a small, server-side Highlight.js language set (shell, YAML, JSON, and Markdown); unsupported languages are escaped as plain text. Copy actions use the original source, without line numbers or highlighting markup. Run `bun run test:web` after a production build to check these behaviors, the homepage template explorer, and brand downloads.
+
+The brand page keeps Distill’s original flask and slate/purple/cream palette. Provider marks in `website/public/brands/chat/` reuse the assets from the [smeltery/convrt reference](https://github.com/smeltery/convrt/tree/main/apps/web/public/brands/chat), adapted to the site’s readable monochrome color. They identify the external chat destinations. The 64px browser icon is rasterized from `favicon.svg`; the social preview has both SVG and PNG sources.

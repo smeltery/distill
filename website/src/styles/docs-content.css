@@ -1,6 +1,6 @@
 .docs-main h1 {
-  font-size: 48px;
-  margin: 42px 0 24px;
+  font-size: clamp(40px, 5vw, 62px);
+  margin: 0 0 20px;
 }
 .docs-main h1 + p {
   font-size: 17px;
@@ -26,6 +26,9 @@
 }
 .docs-main .doc-category {
   font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
 }
 .docs-sidebar nav > div > a,
 .docs-mobile-nav nav a {

@@ -1,5 +1,3 @@
-@import "@fontsource-variable/dm-sans";
-@import "@fontsource/ibm-plex-mono/latin-400.css";
 @import "./navigation.css";
 @import "./overlays.css";
 @import "./mobile-menu.css";
@@ -7,6 +5,9 @@
 @import "./workflow.css";
 @import "./docs.css";
 @import "./docs-content.css";
+@import "./docs-enhancements.css";
+@import "./brand.css";
+@import "./home-extras.css";
 
 :root {
   --paper: #1a1d29;
@@ -18,8 +19,8 @@
   --accent: #b69bfa;
   --purple: #8b5cf6;
   --serif: Georgia, "Times New Roman", serif;
-  --sans: "DM Sans Variable", -apple-system, sans-serif;
-  --mono: "IBM Plex Mono", ui-monospace, monospace;
+  --sans: var(--font-dm-sans), -apple-system, sans-serif;
+  --mono: var(--font-ibm-mono), ui-monospace, monospace;
   color: var(--ink);
   background: var(--paper);
   font-family: var(--sans);
@@ -185,43 +186,9 @@ pre {
   color: #f9b7b7;
   font-size: 12px;
 }
-.brand-page {
-  padding-block: 90px;
-}
-.brand-page h1 {
-  font-size: 64px;
-  margin-bottom: 24px;
-}
-.brand-page h2 {
-  font-size: 30px;
-  margin-bottom: 20px;
-}
-.brand-assets {
-  display: grid;
-  gap: 32px;
-  margin-top: 50px;
-  grid-template-columns: 1fr 2fr;
-}
-.brand-assets article {
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  padding: 28px;
-}
-.brand-assets img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  margin: 25px 0;
-}
-.brand-assets a {
-  margin-right: 20px;
-}
 @media (max-width: 780px) {
   .wrap {
     width: calc(100% - 32px);
-  }
-  .brand-assets {
-    grid-template-columns: 1fr;
   }
 }
 @media (prefers-reduced-motion: reduce) {

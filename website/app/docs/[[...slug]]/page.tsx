@@ -31,10 +31,23 @@ export default async function DocPage({ params }: Props) {
       <div className="docs-layout">
         <DocsNavigation slug={page.slug} />
         <main className="docs-main" id="main">
+          <details className="mobile-toc">
+            <summary>On this page</summary>
+            <nav aria-label="On this page">
+              {page.headings.map((heading) => (
+                <a key={heading.id} href={`#${heading.id}`}>
+                  {heading.title}
+                </a>
+              ))}
+            </nav>
+          </details>
           <p className="doc-category">{page.group}</p>
           <article>
             <DocArticle markdown={page.markdown} />
           </article>
+          <div className="mobile-doc-actions">
+            <DocActions file={page.file} markdown={page.markdown} />
+          </div>
           <nav className="doc-pagination" aria-label="Adjacent pages">
             {[pages[index - 1], pages[index + 1]].map((item, position) =>
               item ? (

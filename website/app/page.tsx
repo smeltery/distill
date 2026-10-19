@@ -1,3 +1,8 @@
+import {
+  TemplateExplorer,
+  AgentChoices,
+  HomeFAQ,
+} from "@/components/HomeExtras";
 import Link from "next/link";
 import {
   FileText,
@@ -205,47 +210,8 @@ export default function Page() {
             </li>
           </ol>
         </section>
-        <section id="use-cases" className="section">
-          <div className="section-heading">
-            <div>
-              <p className="eyebrow">The shape of useful knowledge</p>
-              <h2>A format for the task.</h2>
-            </div>
-            <Link className="text-link" href="/docs/templates">
-              Template guide
-            </Link>
-          </div>
-          <div className="template-grid">
-            {[
-              [
-                "rules",
-                "Do the right thing.",
-                "Framework conventions and team practices.",
-              ],
-              [
-                "principles",
-                "Understand the why.",
-                "Core ideas behind technical decisions.",
-              ],
-              [
-                "patterns",
-                "Recognize the problem.",
-                "Reusable solutions and their trade-offs.",
-              ],
-              [
-                "raw",
-                "Keep the essentials.",
-                "Lighter compaction, familiar structure.",
-              ],
-            ].map(([name, title, description]) => (
-              <Link key={name} href={`/docs/templates#choose-a-format`}>
-                <span className="eyebrow">{name}</span>
-                <h3>{title}</h3>
-                <p>{description}</p>
-              </Link>
-            ))}
-          </div>
-        </section>
+        <TemplateExplorer />
+        <AgentChoices />
         <section id="paper" className="research">
           <BookOpen size={26} />
           <div>
@@ -259,6 +225,7 @@ export default function Page() {
             Read the paper
           </a>
         </section>
+        <HomeFAQ />
         <section id="quick-start" className="closing section">
           <p className="eyebrow">Your next useful document starts here</p>
           <h2>

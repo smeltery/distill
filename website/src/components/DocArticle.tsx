@@ -1,3 +1,4 @@
+import { highlight } from "@/lib/highlight";
 import Image from "next/image";
 import Link from "next/link";
 import Markdown from "react-markdown";
@@ -53,16 +54,47 @@ export function DocArticle({ markdown }: { markdown: string }) {
             return (
               <>
                 <div className="code-heading">
-                  <span>{className.replace("language-", "")}</span>
+                  <span>
+                    {(
+                      {
+                        sh: "Terminal",
+                        bash: "Terminal",
+                        yaml: "YAML · distill.yaml",
+                        json: "JSON",
+                        markdown: "Markdown",
+                      } as Record<string, string>
+                    )[className.replace("language-", "")] ??
+                      className.replace("language-", "")}
+                  </span>
                   <CopyButton text={text} label="Copy code" />
                 </div>
-                <pre>
-                  <code>{text}</code>
+                <pre
+                  className="highlighted-code"
+                  tabIndex={0}
+                  aria-label="Code example"
+                >
+                  <span className="code-gutter" aria-hidden="true">
+                    {text
+                      .split("\n")
+                      .map((_, index) => index + 1)
+                      .join("\n")}
+                  </span>
+                  <code
+                    dangerouslySetInnerHTML={{
+                      __html: highlight(
+                        text,
+                        className.replace("language-", ""),
+                      ),
+                    }}
+                  />
                 </pre>
               </>
             );
           return <code>{children}</code>;
         },
+        blockquote: ({ children }) => (
+          <aside className="docs-notice">{children}</aside>
+        ),
         table: ({ children }) => (
           <div
             className="table-scroll"

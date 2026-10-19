@@ -28,3 +28,41 @@ Directory ingestion reads immediate `.md` files in sorted filename order. It doe
 An empty file, missing path, directory without `.md` files, or directory containing only empty Markdown produces an error. Other file formats must be converted to Markdown outside Distill first.
 
 PDF, EPUB, Notion, URL, and GitHub ingestion are planned. Registering them does not make them usable. `--split-by chapter` and chapter patterns are stored in config but not applied by the Markdown ingestor.
+
+## Organize a reference folder
+
+Keep the files you want to compact at one level, in the order you want the final document to follow:
+
+```text
+handbook/
+  01-conventions.md
+  02-error-handling.md
+  03-testing.md
+  archive/
+    old-conventions.md    # Not included: ingestion is not recursive
+```
+
+```sh
+distill add markdown ./handbook --name handbook --template rules
+distill handbook --dry-run
+```
+
+The dry run lets you inspect the prepared chunks without calling a provider. Empty Markdown files are skipped. If every file is empty, compaction fails rather than producing an empty result.
+
+Keep related guidance together, but avoid combining unrelated references just to save a command. Separate sources let you choose different templates and update only the material you need.
+
+## Change an existing source
+
+There is no separate source-edit command. Open `distill.yaml` and change the registered entry:
+
+```yaml
+sources:
+  handbook:
+    type: markdown
+    path: ./handbook
+    template: rules
+    output_dir: team
+    output_file: handbook.md
+```
+
+Then run `distill handbook --dry-run` to verify the new location, followed by `distill handbook` to write the result. Changing the output destination does not remove files from the previous location; review and clean those up separately.
