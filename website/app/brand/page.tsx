@@ -40,9 +40,10 @@ export default function BrandPage() {
             <em>Make it recognizable.</em>
           </h2>
           <p>
-            A small flask for a simple idea: keep what matters. Use the mark on
-            its own when space is tight, or pair it with the Distill name when
-            making an introduction.
+            A solid flask, with a single drop cut from its center. A simple
+            symbol for keeping the essence. Use the mark on its own when space
+            is tight, or pair it with the Distill name when making an
+            introduction.
           </p>
           <div className="brand-marks">
             <figure>

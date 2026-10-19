@@ -2,13 +2,14 @@
   <title>distill — Less context. More clarity.</title>
   <desc>A Markdown reference becomes three focused rules for an AI agent.</desc>
   <defs>
-    <linearGradient id="purple" x2="1" y2="1"><stop stop-color="#8b5cf6"/><stop offset="1" stop-color="#6d28d9"/></linearGradient>
     <filter id="shadow"><feDropShadow dx="0" dy="14" stdDeviation="20" flood-opacity=".25"/></filter>
   </defs>
   <rect width="1200" height="630" fill="#1a1d29"/>
   <g font-family="Arial, Helvetica, sans-serif" fill="#fefdfb">
-    <rect x="62" y="46" width="44" height="44" rx="10" fill="url(#purple)"/>
-    <path d="M80 56v9l-8 17h24l-8-17v-9m-11 0h14M77 75h14" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <g transform="translate(62 46) scale(0.4583333333)">
+  <rect width="96" height="96" rx="24" fill="#8b5cf6"/>
+  <path fill="#fefdfb" fill-rule="evenodd" d="M35 22h26v6h-5v15l15 24c3.5 5.6-.5 13-7 13H32c-6.5 0-10.5-7.4-7-13l15-24V28h-5v-6Zm13 21c-3 5-9 10.5-9 16a9 9 0 0 0 18 0c0-5.5-6-11-9-16Z"/>
+    </g>
     <text x="120" y="79" font-size="34" font-weight="700" letter-spacing="-1.8">distill.</text>
     <text x="1138" y="77" text-anchor="end" font-size="14" fill="#b1b3c4">A little context. A lot more clarity.</text>
     <text x="62" y="220" font-size="70" font-weight="600" letter-spacing="-3.5">Less context.</text>
